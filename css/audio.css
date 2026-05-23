@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Microsoft YaHei", sans-serif;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background-image: none;
+}
+
+.upper-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+}
+
+.record-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-bg {
+  width: 600px;
+  height: 600px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.record-bg::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+#record-img {
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+
+.rotate-play {
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.introduction-container {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+
+#music-title {
+  font-size: 90px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.author-container {
+  font-size: 30px;
+  color: #eee;
+  opacity: 0.95;
+}
+
+.audio-box {
+  width: 90%;
+  max-width: 1400px;
+  margin-bottom: 60px;
+}
+
+.audio-container {
+  width: 100%;
+  background: transparent;
+  padding: 0;
+}
+
+.a-progress {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.pgs-total {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.pgs-play {
+  height: 100%;
+  background: #fff;
+  transition: width 0.2s;
+}
+
+.a-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.time-container {
+  font-size: 18px;
+  width: 130px;
+}
+
+.center-button-container {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.center-icon {
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.icon-play {
+  width: 65px;
+  height: 65px;
+  background-image: url("../img/继续播放.png");
+  background-size: cover;
+  cursor: pointer;
+}
+.icon-pause {
+  background-image: url("../img/暂停.png") !important;
+}
+
+.s-right { background-image: url("../img/上一首.png"); }
+.s-left { background-image: url("../img/下一首.png"); }
+.volume { background-image: url("../img/音量.png"); }
+
+#volumn-togger {
+  width: 90px;
+  height: 4px;
+  display: none;
+}
+
+.bottom-button-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.bottom-icon {
+  width: 28px;
+  height: 28px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.list { background-image: url("../img/列表.png"); }
+.MV { background-image: url("../img/MV.png"); }
+
+.speed {
+  font-size: 18px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.music-list {
+  position: absolute;
+  right: -400px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 350px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  transition: right 0.3s ease;
+  z-index: 99;
+}
+
+.music-list.show {
+  right: 30px;
+}
+
+.all-list div {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.all-list div:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.close-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: 98;
+  display: none;
+}
+
+.pgs-total::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: var(--percent, 0%);
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.1s linear;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mv-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.95);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.mv-mask.show {
+  display: flex;
+}
+#mv-video {
+  width: 85%;
+  height: auto;
+  max-height: 85vh;
+  border-radius: 8px;
+  outline: none;
+}
+.mv-close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+  transform: translate(-50%, -120%);
+}
+.tooltip.show {
+  opacity: 1;
+}
