@@ -39,8 +39,8 @@ html, body {
 }
 
 .record-bg {
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
   background: #000;
   border-radius: 50%;
   display: flex;
@@ -61,8 +61,8 @@ html, body {
 }
 
 #record-img {
-  width: 420px;
-  height: 420px;
+  width: 370px;
+  height: 370px;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
