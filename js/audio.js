@@ -62,7 +62,7 @@ function hideTooltip() {
 }
 
 // 初始化默认图标
-playModeBtn.style.backgroundImage = "url('../img/mode1.png')";
+playModeBtn.style.backgroundImage = "url('./img/mode1.png')";
 
 loadMusic(currentIndex);
 startAutoBgChange();
